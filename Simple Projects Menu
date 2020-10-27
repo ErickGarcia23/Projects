@@ -1,3 +1,24 @@
+#=========MAIN MENU====================================
+def main():
+    option = ""
+    while option != '0':
+        print("""
+        1 Simple Calculator
+        2 Rock Paper Scissors vs CPU
+        3 Javier's Coin Flip
+        0 Exit/Quit
+        """)
+        option = input()
+
+        if option == "1":
+            calculator_menu()
+        elif option == "2":
+            rps_menu()
+        elif option == "3":
+            coinflip_menu()
+
+#=============Simple Calculator======================
+
 def calculator_menu():
     option = ""
     while option != '0':
@@ -10,9 +31,9 @@ def calculator_menu():
                 0 Return to main menu
                 """)
         option = input()
-
         if option == '0':
-            main()
+            return main()
+
 
         def add(x, y):
             return x + y
@@ -26,8 +47,10 @@ def calculator_menu():
         def division(x, y):
             return x / y
 
+
         x = float(input("Enter a number: "))
         y = float(input("Enter another number: "))
+
 
         if option == '1':
             print(x, "+", y, "=", add(x, y))
@@ -40,12 +63,14 @@ def calculator_menu():
 
         elif option == '4':
             print(x, "/", y, "=", division(x, y))
-        else:
-            print("Choose again")
-            calculator_menu()
 
 
 
+
+
+
+
+#========= Rock, Paper, Scissors Game ==========================
 
 def rps_menu():
     from random import randint
@@ -64,7 +89,7 @@ def rps_menu():
         if player == computer:
             print("computer chose", computer, "it was a tie")
         elif player == "0":
-            main()
+            return main()
 
         elif player == "rock":
             if computer == "paper":
@@ -94,6 +119,7 @@ def rps_menu():
         player = False
         computer = p[randint(0, 2)]
 
+#================ COIN FLIP=========================================
 def coinflip_menu():
     import random
 
@@ -116,25 +142,6 @@ def coinflip_menu():
         coinToss(int(number))
         print("Heads:", str(recordList.count("Heads")), "Tails:", str(recordList.count("Tails")))
 
-#Main Menu------------------------------------------------
-
-def main():
-    option = ""
-    while option != '0':
-        print("""
-        1 Simple Calculator
-        2 Rock Paper Scissors vs CPU
-        3 Javier's Coin Flip
-        0 Exit/Quit
-        """)
-        option = input()
-
-        if option == "1":
-            calculator_menu()
-        elif option == "2":
-            rps_menu()
-        elif option == "3":
-            coinflip_menu()
 
 
 if __name__ == "__main__":
